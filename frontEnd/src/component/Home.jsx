@@ -10,6 +10,9 @@ function Home() {
       <Link to={"/user"}>
         <h3>Details</h3>
       </Link>
+      <Link to={"/productTable"}>
+        <h3>Product Table</h3>
+      </Link>
     </div>
   );
 }

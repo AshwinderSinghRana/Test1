@@ -45,26 +45,8 @@ async function deleteUser(req,res){
     }
 }
 
-async function productUser(req,res){
-    try {
-        let result = await user.find()
-        
-        res.status(201).send({success:true,result})
-    } catch (error) {
-        res.send(400).send(error.message)
-    }
-}
 
-async function productSubUser(req,res){
-    try {
-        let result = await user.find().populate( "product_id" )
-        
-        res.status(201).send({success:true,result})
-    } catch (error) {
-        res.send(400).send(error.message)
-    }
-}
  
  
 
-module.exports={createUser,getAllUser,getUser,updateUser,deleteUser,productUser,productSubUser}
+module.exports={createUser,getAllUser,getUser,updateUser,deleteUser}

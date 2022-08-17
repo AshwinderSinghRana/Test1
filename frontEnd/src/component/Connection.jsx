@@ -3,7 +3,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Swal } from "sweetalert2";
+import Swal from "sweetalert2";
 
 function Connection() {
   const ID = useParams().id;
@@ -35,14 +35,13 @@ function Connection() {
   };
 
   const handleClick = () => {
-    // Swal.fire({
-    //   position: "top-end",
-    //   icon: "success",
-    //   title: "Your work has been saved",
-    //   showConfirmButton: false,
-    //   timer: 1500,
-    // });
-    alert("Data Saved Successfully");
+    Swal.fire({
+      position: "top-middle",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
   return (
     <div>
@@ -51,11 +50,6 @@ function Connection() {
       </Link>
       <h1>Enter Your Details</h1>
       <form onSubmit={handleSubmit}>
-        <label for="cars">Choose a car:</label>
-        <select name="cars" id="cars">
-          <option value={data?.product_name}></option>
-        </select>
-        <hr />
         <input
           type="text"
           name="name"
