@@ -4,6 +4,7 @@ import { Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function ProductTable() {
+  const [data, setData] = useState();
   const [category, setCategory] = useState();
   const [subCategory, setSubCategory] = useState();
   useEffect(() => {
@@ -30,7 +31,9 @@ function ProductTable() {
     e.preventDefault();
     console.log(category, subCategory);
   };
-  const handleChange = () => {};
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
 
   return (
     <div>
@@ -41,9 +44,9 @@ function ProductTable() {
         <fieldset enabled>
           <Form.Group className="mb-2">
             <Form.Label htmlFor="disabledSelect">Category Select</Form.Label>
-            <Form.Select id="disabledSelect">
+            <Form.Select name="category" id="disabledSelect">
               {category?.map((c) => (
-                <option>{c.category}</option>
+                <option value={c._id}>{c.category}</option>
               ))}
             </Form.Select>
           </Form.Group>
@@ -53,9 +56,13 @@ function ProductTable() {
               Sub Category Select
             </Form.Label>
             <Form.Select id="disabledSelect">
-              <option>Electronics</option>
-              <option>Sports</option>
-              <option>Toys</option>
+              {subCategory?.map((c) =>
+                c.categoryFK._id === data?.category ? (
+                  <option>{c.subCategory}</option>
+                ) : (
+                  ""
+                )
+              )}
             </Form.Select>
           </Form.Group>
 
