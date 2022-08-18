@@ -43,8 +43,8 @@ function ProductTable() {
       <Form onSubmit={handleSubmit} onChange={handleChange}>
         <fieldset enabled>
           <Form.Group className="mb-2">
-            <Form.Label htmlFor="disabledSelect">Category Select</Form.Label>
-            <Form.Select name="category" id="disabledSelect">
+            <Form.Label htmlFor="enabledSelect">Category Select</Form.Label>
+            <Form.Select name="category" id="enabledSelect">
               {category?.map((c) => (
                 <option value={c._id}>{c.category}</option>
               ))}
@@ -52,10 +52,8 @@ function ProductTable() {
           </Form.Group>
 
           <Form.Group className="mb-2">
-            <Form.Label htmlFor="disabledSelect">
-              Sub Category Select
-            </Form.Label>
-            <Form.Select id="disabledSelect">
+            <Form.Label htmlFor="enabledSelect">Sub Category Select</Form.Label>
+            <Form.Select id="enabledSelect">
               {subCategory?.map((c) =>
                 c.categoryFK._id === data?.category ? (
                   <option>{c.subCategory}</option>
