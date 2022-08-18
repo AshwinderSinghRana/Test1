@@ -27,7 +27,7 @@ function Connection() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(ID);
+    // console.log(ID);
     if (mode === "update") {
       axios.put(`http://localhost:1234/user/${ID}`, data);
     }
@@ -73,6 +73,15 @@ function Connection() {
           name="mobile"
           placeholder="Enter your number"
           value={data?.mobile}
+          onChange={handleChange}
+        />
+        <br />
+        <input
+          style={{ margin: "7px" }}
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+          value={data?.password}
           onChange={handleChange}
         />
         <br />

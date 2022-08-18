@@ -11,6 +11,7 @@ function Home() {
             <Nav.Link href="/connection">Forms</Nav.Link>
             <Nav.Link href="/user">User Details</Nav.Link>
             <Nav.Link href="/productTable">Products </Nav.Link>
+            <Nav.Link href="/login">Login </Nav.Link>
           </Nav>
         </Container>
       </Navbar>

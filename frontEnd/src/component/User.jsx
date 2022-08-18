@@ -23,6 +23,7 @@ function User() {
     console.log(id);
     axios.delete(`http://localhost:1234/user/${id}`);
     alert("Data Deleted");
+    location.reload();
   };
 
   return (
@@ -45,6 +46,7 @@ function User() {
               <ListGroup.Item>{pro.name}</ListGroup.Item>
               <ListGroup.Item>{pro.email}</ListGroup.Item>
               <ListGroup.Item>{pro.mobile}</ListGroup.Item>
+              <ListGroup.Item>{pro.password}</ListGroup.Item>
             </ListGroup>
             <button
               style={{ backgroundColor: "grey" }}
