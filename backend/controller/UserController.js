@@ -38,8 +38,14 @@ async function getAllUser(req, res) {
 }
 
 async function updateUser(req, res) {
+  let { name, email, mobile, password } = req.body;
+  let hash = await bcrypt.hash(password, 10);
+
   try {
-    let result = await user.findByIdAndUpdate({ _id: req.params.id }, req.body);
+    let result = await user.findByIdAndUpdate(
+      { _id: req.params.id },
+      { name, email, mobile, password: hash }
+    );
     res.status(201).send({ success: true, result });
   } catch (error) {
     res.status(400).send(error.message);

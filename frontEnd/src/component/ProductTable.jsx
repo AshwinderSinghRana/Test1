@@ -8,7 +8,7 @@ function ProductTable() {
   const [category, setCategory] = useState();
   const [subCategory, setSubCategory] = useState();
   useEffect(() => {
-    axios(`http://localhost:1234/category`)
+    axios(`http://localhost:2222/category`)
       .then((e) => {
         setCategory(e.data.result);
       })
@@ -18,7 +18,7 @@ function ProductTable() {
   }, []);
 
   useEffect(() => {
-    axios(`http://localhost:1234/subCategory`)
+    axios(`http://localhost:2222/subCategory`)
       .then((e) => {
         setSubCategory(e.data.result);
       })
@@ -64,7 +64,7 @@ function ProductTable() {
             </Form.Select>
           </Form.Group>
 
-          <Button type="submit">Submit</Button>
+          <Button variant="primary">Go somewhere</Button>
         </fieldset>
       </Form>
     </div>

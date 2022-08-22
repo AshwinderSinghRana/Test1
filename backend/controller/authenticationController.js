@@ -1,4 +1,5 @@
-const User = require("../controller/UserController");
+const User = require("../models/UserSchema");
+const bcrypt = require("bcrypt");
 
 /////verify user email and password
 async function verifyUser(req, res) {
@@ -14,7 +15,9 @@ async function verifyUser(req, res) {
       if (!compare) {
         res.status(400).send("Invalid password");
       } else {
-        res.status(200).send("Login succcesfull", result);
+        res
+          .status(200)
+          .send({ status: 1234, message: "Login succcesfull", result });
       }
     }
   } catch (error) {

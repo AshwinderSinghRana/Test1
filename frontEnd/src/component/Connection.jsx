@@ -12,7 +12,7 @@ function Connection() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:1234/user/${ID}`)
+      .get(`http://localhost:2222/user/${ID}`)
       .then((res) => {
         setData(res.data.result);
         console.log(res.data);
@@ -29,9 +29,10 @@ function Connection() {
     e.preventDefault();
     // console.log(ID);
     if (mode === "update") {
-      axios.put(`http://localhost:1234/user/${ID}`, data);
+      axios.put(`http://localhost:2222/user/${ID}`, data);
+    } else {
+      axios.post("http://localhost:2222/user/new", data);
     }
-    axios.post("http://localhost:1234/user/new", data);
   };
 
   const handleClick = () => {

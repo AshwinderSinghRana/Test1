@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { ListGroup } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -11,7 +11,7 @@ function User() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:1234/user`)
+      .get(`http://localhost:2222/user`)
       .then((res) => {
         setUser(res.data.result);
         console.log(res.data);
@@ -21,7 +21,7 @@ function User() {
 
   const handleDelete = (id) => {
     console.log(id);
-    axios.delete(`http://localhost:1234/user/${id}`);
+    axios.delete(`http://localhost:2222/user/${id}`);
     alert("Data Deleted");
     location.reload();
   };
@@ -48,22 +48,23 @@ function User() {
               <ListGroup.Item>{pro.mobile}</ListGroup.Item>
               <ListGroup.Item>{pro.password}</ListGroup.Item>
             </ListGroup>
-            <button
-              style={{ backgroundColor: "grey" }}
+
+            <Button
+              style={{ backgroundColor: "black" }}
               onClick={() => {
                 handleDelete(pro._id);
               }}
             >
               Delete
-            </button>
-            <button
-              style={{ backgroundColor: "grey" }}
+            </Button>
+            <Button
+              style={{ backgroundColor: "black" }}
               onClick={() => {
                 navigate(`/updateForm/${pro._id}`);
               }}
             >
               Update
-            </button>
+            </Button>
           </Card>
         </div>
       ))}
