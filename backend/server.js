@@ -17,6 +17,8 @@ app.use("/user", router);
 app.use("/category", categoryRouter);
 app.use("/subCategory", subCategory);
 app.use("/auth", authRouter);
+
+app.use("/config/secretkey", (req, res) => res.send(process.env.SITE_KEY));
 const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`Working on the ${port}`);
